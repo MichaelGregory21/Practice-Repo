@@ -12,14 +12,16 @@ public class Team
     Person coach;
     float points;
     int goals;
+    String country;
     
     /**
      * Constructor for objects of class Team
      */
-    public Team()
+    public Team(String country)
     {
         players = new Person[17];
         coach = new Person();
+        this.country = country;
     }
     
     public float getPoints()
@@ -41,4 +43,5 @@ public class Team
     {
         this.points += points;
     }
+
 }

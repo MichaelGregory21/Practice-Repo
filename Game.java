@@ -47,4 +47,6 @@ public class Game
         this.goals[0] = team1Goals;
         this.goals[1] = team2Goals;
     }
+    
+    
 }

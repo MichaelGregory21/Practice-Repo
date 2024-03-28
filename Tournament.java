@@ -8,26 +8,19 @@
 public class Tournament
 {
     // instance variables - replace the example below with your own
-    private int x;
-
+    final int NUM_OF_GROUPS = 4;
+    Group[] groups;
+    
     /**
      * Constructor for objects of class Tournament
      */
     public Tournament()
     {
-        // initialise instance variables
-        x = 0;
+        groups = new Group[NUM_OF_GROUPS];
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    
+    public void hockeyCupSetup()
     {
-        // put your code here
-        return x + y;
+        
     }
 }
