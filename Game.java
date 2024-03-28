@@ -1,3 +1,4 @@
+import java.util.Random;
 
 /**
  * Write a description of class Game here.
@@ -7,26 +8,26 @@
  */
 public class Game
 {
-    float[] points;
-    int[] goals;
-    final int NUM_OF_PARTICIPANTS = 2;
+    private double[] points;
+    private int[] goals;
+    private final int NUM_OF_PARTICIPANTS = 2;
     
     /**
      * Constructor for objects of class Game
      */
     public Game(Team team1, Team team2)
     {
-        points = new float[NUM_OF_PARTICIPANTS];
+        points = new double[NUM_OF_PARTICIPANTS];
         goals = new int[NUM_OF_PARTICIPANTS];
     }
     
-    public float getPoints(int index)
+    public double getPoints(int index)
     {
         if (index >= 0 && index < NUM_OF_PARTICIPANTS) return points[index];
         return points[0];   
     }
 
-    public int getGoal(int index)
+    public int getGoals(int index)
     {
         if (index >= 0 && index < NUM_OF_PARTICIPANTS){
         return goals[index];
@@ -35,18 +36,33 @@ public class Game
             return goals[0];
         }
     }
-    
-    private void setPoints(int team1Points, int team2Points)
+
+    public void play()
     {
-        this.points[0] = team1Points;
-        this.points[1] = team2Points;
+        Random random = new Random();
+        goals[0] = random.nextInt(6); goals[1] = random.nextInt(6);
+        if (goals[0] == goals[1]){
+            if (random.nextInt() % 2 == 0){
+                goals[0] += 1;
+                points[0] += 1.5;
+                
+                points[1] += 0.5;
+            }
+            else{
+                goals[1] += 1;
+                points[1] += 1.5;
+                
+                points[0] += 0.5;
+            }
+        }
+        else{
+            if (goals[0] > goals[1]){
+                points[0] += 2.0;
+            }
+            else{
+                points[1] += 2.0;
+            }
+        }
+        points[0] = goals[0] * 0.1; points[1] = goals[1] * 0.1;
     }
-    
-    private void setGoals(int team1Goals, int team2Goals)
-    {
-        this.goals[0] = team1Goals;
-        this.goals[1] = team2Goals;
-    }
-    
-    
 }
