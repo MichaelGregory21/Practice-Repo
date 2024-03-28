@@ -8,8 +8,7 @@ import java.util.ArrayList;
  */
 public class Group
 {
-    private final int NUM_OF_TEAMS = 5;
-    private Team[] teams;
+    private ArrayList<Team> teams;
     private ArrayList<Game> games;
 
     /**
@@ -17,15 +16,25 @@ public class Group
      */
     public Group()
     {
-        teams = new Team[NUM_OF_TEAMS];
+        teams = new ArrayList<Team>();
     }
 
-    public void randomGames() {
-        for (int i = 0; i < (NUM_OF_TEAMS -1); i++)
+    public void addMatch(Team team1, Team team2){
+        Game game = new Game(team1, team2);
+        games.add(game);
+    }
+    
+    public void addTeam(String country)
+    {
+        teams.add(new Team(country));
+    }
+    
+    public void randomGames() 
+    {
+        for (int i = 0; i < (teams.size() -1); i++)
         {
-            for (int j = 1; j < NUM_OF_TEAMS; j++){
-                Game game = new Game(teams[i], teams[j]);
-                games.add(game);
+            for (int j = 1; j < teams.size(); j++){
+                addMatch(teams.get(i), teams.get(j));
             }
         }
     }

@@ -8,7 +8,9 @@
 public class Tournament
 {
     // instance variables - replace the example below with your own
-    final int NUM_OF_GROUPS = 4;
+    private final int NUM_OF_GROUPS = 4;
+    private final int NUM_OF_TEAMS = 5;
+
     Group[] groups;
     
     /**
@@ -21,6 +23,10 @@ public class Tournament
     
     public void hockeyCupSetup()
     {
-        
+        for (int i = 0; i < NUM_OF_GROUPS; i++){
+            for (int k = 0; k < NUM_OF_TEAMS; k++){
+                groups[i].addTeam("country: " + (k+1));
+            }
+        }
     }
 }
