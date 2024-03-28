@@ -20,12 +20,16 @@ public class Group
         teams = new Team[NUM_OF_TEAMS];
     }
 
+    public void addMatch(Team team1, Team team2){
+        Game game = new Game(team1, team2);
+        games.add(game);
+    }
+    
     public void randomGames() {
         for (int i = 0; i < (NUM_OF_TEAMS -1); i++)
         {
             for (int j = 1; j < NUM_OF_TEAMS; j++){
-                Game game = new Game(teams[i], teams[j]);
-                games.add(game);
+                addMatch(teams[i], teams[j]);
             }
         }
     }
