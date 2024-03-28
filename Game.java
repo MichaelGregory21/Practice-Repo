@@ -1,3 +1,4 @@
+import java.util.Random;
 
 /**
  * Write a description of class Game here.
@@ -46,5 +47,11 @@ public class Game
     {
         this.goals[0] = team1Goals;
         this.goals[1] = team2Goals;
+    }
+    
+    public void play()
+    {
+        Random random = new Random();
+        setGoals(random.nextInt(6), random.nextInt(6));
     }
 }
