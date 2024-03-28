@@ -8,8 +8,8 @@ import java.util.ArrayList;
  */
 public class Team
 {
-    Person[] players;
-    Person coach;
+    Player[] players;
+    Coach coach;
     float points;
     int goals;
     String country;
@@ -19,8 +19,8 @@ public class Team
      */
     public Team(String country)
     {
-        players = new Person[17];
-        coach = new Person();
+        players = new Player[17];
+        coach = new Coach();
         this.country = country;
     }
     
